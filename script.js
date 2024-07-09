@@ -1,3 +1,117 @@
+// Segunda preentrega
+
+const velas = [
+    {id : 1 , nombre : "Vela de Lavanda" , precio : 15000},
+    {id : 2 ,nombre : "Vela de Limon" , precio : 21000},
+    {id : 3 , nombre : "Vela de Menta" , precio : 16000},
+    {id : 4 , nombre : "Vela de Vainilla" , precio : 14300},  
+]
+
+class Productos {
+    constructor (productos){
+        this.items = productos;
+    }
+
+    agregarProducto (nombre, precio){
+        const producto = {
+            id: this.generarId(),
+            nombre : nombre,
+            precio: precio
+        }
+        this.items.push(producto);
+    }
+
+    buscarProducto(id){
+        return this.items.find(item => item.id == id)
+    }
+
+
+    totalProductos(){
+        return this.items.length;
+    }
+
+    
+    generarId(){
+        return this.totalProductos() + 1;
+    }
+
+    eliminarProducto (id){
+        this.items= this.items.filter(item => item.id != id);
+        this.nuevoId()
+        alert(" Se eliminó el producto "+ id + " = Vela de menta")
+    }
+
+    nuevoId (){
+        this.items.forEach((item, i) => {
+            item.id = i + 1;
+        })
+    }
+
+    mostrarLista (){
+        let catalogo = "Catálogo de productos: \n" ;
+        this.items.forEach(producto  => {
+            catalogo +=` ID : ${producto.id}, - Nombre : ${producto.nombre} , Precio : ${producto.precio } \n`
+        });
+        alert(catalogo)
+    }
+}
+
+const lista = new Productos (velas);
+lista.mostrarLista()
+
+//Ingreso un nuevo producto por prompt
+
+let nombreProducto = prompt("Ingrese el modelo de vela");
+let precioProducto = prompt("Ingrese el precio");
+
+lista.agregarProducto(nombreProducto,precioProducto);
+
+//Agrego otro producto y muestro nuevamente el catalogo (push)
+
+lista.agregarProducto("Vela de Tilo", 20000);
+lista.mostrarLista();
+
+// Se elimina el producto 3 (Vela de Menta) (filter)
+lista.eliminarProducto(3);
+lista.mostrarLista()
+
+// Busqueda del producto con ID 1 = Vela de lavanda (find)
+let producto = lista.buscarProducto(1);
+if (producto) {
+    alert("Busqueda de producto con ID 1 : " + producto.nombre + " - $ " + producto.precio)
+}else {
+    alert("Producto no encontrado")
+}
+
+//Cantidad de productos (length)
+alert ("Cantidad total de productos  : " + lista.totalProductos());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Primera preentrega
+
 // Saludo
 
 let cliente = prompt("Ingrese su nombre y apellido");
@@ -76,3 +190,4 @@ alert ("Muchas gracias por tu compra");
 
 eleccion();
 
+*/
