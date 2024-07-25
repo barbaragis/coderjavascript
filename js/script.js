@@ -1,4 +1,43 @@
-// Segunda preentrega
+// Cards de productos
+
+
+function renderizarProductos() {
+    let contenidoHTML = "";
+
+    for (const producto of productos) {
+        contenidoHTML += `
+        <div class="card m-2 border border-0" style="width: 18rem;">
+            <img src="${producto.imagen}" class="card-img-top rounded" alt="${producto.nombre}">
+            <div class="card-body text-center">
+                <h5 class="card-title ">${producto.nombre}</h5>
+                <p> $${producto.precio} </p>
+                <div class="container__botones">
+                    <a href="detalle.html" onclick="verDetalleLs(${producto.id})"><button class="btn btn-dark p-2"> Ver detalle </button> </a>
+                    <button class="btn btn-secondary" onclick="agregarProducto(${producto.id})">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        `
+    }
+
+    document.getElementById("contenido").innerHTML = contenidoHTML;
+}
+
+
+renderizarProductos();
+renderBoton();
+
+
+
+
+
+
+
+
+
+
+
+/* // Segunda preentrega
 
 const velas = [
     {id : 1 , nombre : "Vela de Lavanda" , precio : 15000},
@@ -91,7 +130,7 @@ alert ("Cantidad total de productos  : " + lista.totalProductos());
 
 
 
-
+ */
 
 
 

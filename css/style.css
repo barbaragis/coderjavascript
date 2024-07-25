@@ -1,0 +1,22 @@
+li , .card{
+    font-family: "Roboto", sans-serif;
+
+}
+
+li:hover{
+    text-decoration: underline;
+}
+.card-body{
+    font-size: 14px;
+}
+
+.imagen__detalle{
+    width: 350px;
+    border-radius: 12px;
+}
+
+.container__botones{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
