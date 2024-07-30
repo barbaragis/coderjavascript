@@ -5,21 +5,32 @@ function renderizarCarrito() {
     const carrito = cargarCarrito();
     let contenidoHTML ;
     
-    if (totalProductos() > 0 ){
+    if (carrito.length > 0 ){
         contenidoHTML = 
         `<table class = " table table-sm table align-middle table-hover ">
         <td  > <button  class="btn btn-secondary p-2  " onclick="vaciarCarrito()" > Vaciar carrito</button> </td>
-        <tbody> `
-  
+        <tbody> 
+        <table class="table table-sm table align-middle table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody> 
+`
 
     for (const producto of carrito) {
         contenidoHTML += ` <tr >
         <td>  <img src="${producto.imagen}"  class="img-thumbnail" width="155px" alt="${producto.nombre}"> </td>
         <td>  ${producto.nombre}</td>
- 
-        <td><p> $${producto.precio} </p> </td>
-               <td> ${producto.cantidad} </td>
-               <th> ${producto.precio * producto.cantidad }</th>
+        <td>  $${producto.precio}  </td>
+        <td> ${producto.cantidad} </td>
+               <th> $${producto.precio * producto.cantidad }</th>
         <td> <button onclick="eliminarProducto(${producto.id})"><i class="bi bi-trash"></i></button></td>
             </div>
         </div>
@@ -34,7 +45,12 @@ function renderizarCarrito() {
 }
 
     document.getElementById("contenido").innerHTML = contenidoHTML;
+
+    const totalCompra = calcularTotal();
+    document.getElementById("totalCompra").innerText = `Total a pagar: $${totalCompra}`;
+
 }
+
 
 renderizarCarrito();
 renderBoton();

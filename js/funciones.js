@@ -83,7 +83,7 @@ function eliminarProducto (id) {
 
 function renderBoton (){
     let total = totalProductos();
-    document.getElementById("totalCarrito").innerHTML = total;
+    document.getElementById("totalCarrito").innerHTML  =` ${total}`
 }
 
 function totalProductos () {
@@ -124,3 +124,5 @@ function verDetalleLs(id){
     localStorage.setItem("producto" , JSON.stringify(id));
 }
 
+renderizarCarrito()
+renderBoton()
