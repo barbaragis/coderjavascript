@@ -8,7 +8,7 @@ function renderizarCarrito() {
     if (totalProductos() > 0 ){
         contenidoHTML = 
         `<table class = " table table-sm table align-middle table-hover ">
-        <td > <button  class="btn btn-secondary " onclick="vaciarCarrito()" ><i class="bi bi-trash"></i></button> </td>
+        <td  > <button  class="btn btn-secondary p-2  " onclick="vaciarCarrito()" > Vaciar carrito</button> </td>
         <tbody> `
   
 
@@ -16,7 +16,10 @@ function renderizarCarrito() {
         contenidoHTML += ` <tr >
         <td>  <img src="${producto.imagen}"  class="img-thumbnail" width="155px" alt="${producto.nombre}"> </td>
         <td>  ${producto.nombre}</td>
+ 
         <td><p> $${producto.precio} </p> </td>
+               <td> ${producto.cantidad} </td>
+               <th> ${producto.precio * producto.cantidad }</th>
         <td> <button onclick="eliminarProducto(${producto.id})"><i class="bi bi-trash"></i></button></td>
             </div>
         </div>
