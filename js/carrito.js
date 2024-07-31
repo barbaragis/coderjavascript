@@ -18,7 +18,7 @@ function renderizarCarrito() {
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Subtotal</th>
-                <th>Acciones</th>
+                
             </tr>
         </thead>
         <tbody> 
@@ -30,24 +30,31 @@ function renderizarCarrito() {
         <td>  ${producto.nombre}</td>
         <td>  $${producto.precio}  </td>
         <td> ${producto.cantidad} </td>
-               <th> $${producto.precio * producto.cantidad }</th>
-        <td> <button onclick="eliminarProducto(${producto.id})"><i class="bi bi-trash"></i></button></td>
-            </div>
-        </div>
+        <th> $${producto.precio * producto.cantidad }</th>
+        <td> 
+            <button onclick="eliminarProducto(${producto.id})"><i class="bi bi-trash"></i></button> 
+        </td>
+
         </tr>
         `
     }
 
     contenidoHTML += ` </tbody>
     </table>`
+    
+    const totalCompra = calcularTotal();
+    document.getElementById("totalCompra").innerText = `Total a pagar: $${totalCompra}`;
+    document.getElementById("totalCompra").style.display = "block"
+
 }else{
     contenidoHTML = ` <p class="text-center" >  Tu carrito está vacío <i class="bi bi-emoji-frown"></i> </p>`
+
+    document.getElementById("totalCompra").style.display = "none"
 }
 
     document.getElementById("contenido").innerHTML = contenidoHTML;
 
-    const totalCompra = calcularTotal();
-    document.getElementById("totalCompra").innerText = `Total a pagar: $${totalCompra}`;
+  
 
 }
 

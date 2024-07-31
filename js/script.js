@@ -10,14 +10,14 @@ function renderizarProductos(productosEnPagina) {
         contenidoHTML += `
         <div class="card m-2 border border-0" style="width: 16rem;">
             <a href="#" onclick="verDetalleLs(${producto.id})">
-                <img src="${producto.imagen}" class="card-img-top " alt="${producto.nombre}">
+                <img src="${producto.imagen}" class="img-thumbnail" alt="${producto.nombre}">
                 </a>
             <div class="card-body">
-                <h5 class="card-title text-center ">${producto.nombre}</h5>
+                <h5 class="card-title text-center  ">${producto.nombre}</h5>
                 <p class="precio__producto"> $${producto.precio} </p>
                 <div class="container__botones">
-                    <a href="#" onclick="verDetalleLs(${producto.id})"><i class="bi bi-eye"></i> </a>
-                    <button class="btn btn-dark p-2" onclick="agregarProducto(${producto.id})">Agregar al carrito </button>
+                    <button class="btn btn-dark " onclick="verDetalleLs(${producto.id})">Ver detalle </button>
+                    <button class="btn btn-dark " onclick="agregarProducto(${producto.id})"> Agregar al carrito </button>
                     
                 </div>
             </div>

@@ -40,7 +40,47 @@ const productos = [
             nombre : "Deco",
             id : "deco"},
         precio: 2500
-    }
+    },
+    {
+        id:5,
+        nombre: "Vela cactus",
+        descripcion: "Vela de soja en maceta de cemento. " ,
+        imagen : "https://acdn.mitiendanube.com/stores/002/382/814/products/img-41101-c69021a0e908b7e29f16932280256755-1024-1024.webp", 
+        categoria: {
+            nombre : "velas",
+            id : "velas"},
+        precio: 2500
+    },
+    {
+        id:6,
+        nombre: "Espejo de mesa",
+        descripcion: "Espejo de mesa con base de cemento ",
+        imagen : "https://acdn.mitiendanube.com/stores/002/382/814/products/whatsapp-image-2024-03-08-at-17-36-45-2e8cb4077e987f9e5717099303161164-1024-1024.webp",
+        categoria: {
+            nombre : "Deco",
+            id : "deco"},
+        precio: 2500
+    },
+    {
+        id:7,
+        nombre: "Portavelas classic",
+        descripcion: "Portavelas de cemento  ",
+        imagen : "https://acdn.mitiendanube.com/stores/002/382/814/products/image000061-09675179554ea92fc116891730156274-1024-1024.webp",
+        categoria: {
+            nombre : "Portavelas",
+            id :"portavelas"},
+        precio: 2500
+    },
+    {
+        id:8,
+        nombre: "Vela heart",
+        descripcion: "Vela de soja con forma de corazón  ",
+        imagen : "https://acdn.mitiendanube.com/stores/002/382/814/products/image0002411-a40bd9aeaaef6695d916891713023871-640-0.webp",
+        categoria: {
+            nombre : "velas",
+            id :"velas"},
+        precio: 2500
+    },
 ]
 
 
@@ -60,6 +100,14 @@ function agregarProducto (id){
 
     localStorage.setItem("carrito" , JSON.stringify(carrito));
     renderBoton()
+
+    Swal.fire({
+        position: "top-right",
+        icon: "success",
+        title: "Producto agregado al carrito",
+        showConfirmButton: false,
+        timer: 1000
+      });
 }
 
 function eliminarProducto (id) {
@@ -110,7 +158,8 @@ function vaciarCarrito() {
     localStorage.removeItem("carrito");
     renderizarCarrito();
     renderBoton()
-    
+
+  
 }
 
 function cargarProductoLs(){
